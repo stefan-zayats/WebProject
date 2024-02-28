@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class DepService {
 
-    public DepResult calculateProfit(double amount, int term, String currency, double interestRate) {
+    public DepResult calculateProfit(double amount, int term, String currency, double interestRate, Integer interval) {
 
-        double totalAmount = amount * Math.pow(1 + interestRate / 100, term);
+        double totalAmount = amount * Math.pow(1 + interestRate / 100 / interval, term/interval);
 
         double cleanProfitAmount = totalAmount - amount;
 
