@@ -20,8 +20,8 @@ public class DepController {
             @RequestParam int term,
             @RequestParam(defaultValue = "USD") String currency,
             @RequestParam(name = "rate") double interestRate,
-            @RequestParam(required = false,name = "interval", defaultValue = "12") Integer paymentInterval) {
+            @RequestParam(name = "cap", defaultValue = "year") String capitalization) {
 
-        return depService.calculateProfit(amount, term, currency, interestRate, paymentInterval);
+        return depService.calculateProfit(amount, term, currency, interestRate, capitalization);
     }
 }
