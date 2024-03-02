@@ -16,12 +16,12 @@ public class CreditController {
 
     @GetMapping
     public CreditResult calculateCredit(
-            @RequestParam double amount,
+            @RequestParam double sum,
             @RequestParam int term,
             @RequestParam(defaultValue = "USD") String currency,
             @RequestParam(name = "rate") double interestRate,
-            @RequestParam(required = false, name = "interval", defaultValue = "12") Integer paymentInterval) {
+            @RequestParam String duration) {
 
-        return creditService.calculateLosses(amount, term, currency, interestRate, paymentInterval);
+        return creditService.calculateLosses(sum, term, currency, interestRate, duration);
     }
 }

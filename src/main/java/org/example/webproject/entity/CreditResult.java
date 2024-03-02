@@ -6,7 +6,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class CreditResult {
-    private double amount;
+    private double sum;
     private double allOverpayment;
     private double monthlyPayment;
     private String currency;
