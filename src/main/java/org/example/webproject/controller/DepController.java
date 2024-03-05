@@ -20,7 +20,7 @@ public class DepController {
             @RequestParam int term,
             @RequestParam(defaultValue = "USD") String currency,
             @RequestParam(name = "rate") double interestRate,
-            @RequestParam(name = "cap", defaultValue = "year") String capitalization) {
+            @RequestParam(required = false, name = "cap", defaultValue = "year") String capitalization) {
 
         return depService.calculateProfit(amount, term, currency, interestRate, capitalization);
     }
