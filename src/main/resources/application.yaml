@@ -1,15 +1,18 @@
 spring:
   datasource:
-    name: postgres
-    password: postgres
-    url: jdbc:postgresql://localhost:5432/mamont_solutions
+    url: jdbc:postgresql://localhost:5432/plan_data
+    username: postgres
+    password: Xcx12345xc
     driver-class-name: org.postgresql.Driver
-  jpa:
+
+
+jpa:
+  hibernate:
+    ddl-auto: update
+  properties:
     hibernate:
-      # This will create table automatically in your database
-      ddl-auto: create
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        dialect: PostgreSQLDialect
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+
+      logging:
+        level:
+          org.springframework: debug

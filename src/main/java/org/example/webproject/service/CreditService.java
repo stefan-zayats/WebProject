@@ -1,5 +1,6 @@
 package org.example.webproject.service;
 
+import org.example.webproject.entity.DurationType;
 import org.example.webproject.entity.CreditResult;
 import org.springframework.stereotype.Service;
 
@@ -9,17 +10,12 @@ public class CreditService {
 
     public CreditResult calculateLosses(double sum, int term, String currency, double interestRate, String duration) {
 
-
-        int  multiplier = 1;
-
-        switch (duration) {
-            case "month":
-                multiplier = 1;
-                break;
-            case "year":
-                multiplier = 12;
-                break;
-        }
+        DurationType type = DurationType.valueOf(duration.toUpperCase());
+        double multiplier =
+            switch (type) {
+                case MOUTH -> 1;
+                case YEAR -> 12;
+            };
 
         double termInMonths = term * multiplier;
 
